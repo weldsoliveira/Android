@@ -33,23 +33,39 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/mobile_navigation" />
 
+    <EditText
+        android:id="@+id/txtQtd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="31dp"
+        android:layout_marginBottom="14dp"
+        android:hint="Digite a quantidade"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/lv_jogos"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nav_view" />
+
     <Button
         android:id="@+id/btnGerar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="23dp"
+        android:layout_marginTop="87dp"
         android:layout_marginEnd="58dp"
+        android:layout_marginBottom="588dp"
         android:text="Novo Jogo"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/txtQtd"
-        app:layout_constraintTop_toBottomOf="@+id/nav_view" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
         android:id="@+id/lv_jogos"
-
         android:layout_width="409dp"
         android:layout_height="584dp"
+        android:layout_below="@+id/btnGerar"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -59,21 +75,6 @@
 
     </ListView>
 
-    <EditText
-        android:id="@+id/txtQtd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="17dp"
-        android:ems="10"
-        android:gravity="top"
-        android:hint="Digite a quantidade"
-        android:inputType="textPersonName"
-        android:scrollbars="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/lv_jogos"
-        app:layout_constraintEnd_toStartOf="@+id/btnGerar"
-        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
