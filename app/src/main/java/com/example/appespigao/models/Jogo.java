@@ -6,9 +6,16 @@ import java.util.List;
 public class Jogo
 {
     private List<String> numeros;
+    private String nomeBloco;
+
     public List<String> getNumeros() {
         return numeros;
     }
+    public String getnomeBloco() {
+        return nomeBloco;
+    }
+
+
     public void setNumeros(List<String> numeros) {
         this.numeros = numeros;
     }
@@ -19,6 +26,9 @@ public class Jogo
             novoList.add(this.IncluirZeroEsquerda(num));
         }
         this.numeros = novoList;
+    }
+    public void setNomeBloco(String nomeBloco) {
+        this.nomeBloco = nomeBloco;
     }
 
     private String IncluirZeroEsquerda(Integer numero) {

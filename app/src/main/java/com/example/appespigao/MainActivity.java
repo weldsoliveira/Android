@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.appespigao.adapter.AdapterJogosPersonalizado;
 import com.example.appespigao.models.Bloco;
 import com.example.appespigao.models.Jogo;
 import com.example.appespigao.services.GeradorLoteria;
@@ -20,7 +21,7 @@ import androidx.navigation.ui.NavigationUI;
 import java.util.ArrayList;
 import java.util.List;
 public class MainActivity extends AppCompatActivity {
-    ListView listTeste;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,22 +38,35 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
 
-        listTeste = (ListView) findViewById(R.id.lv_jogos);
+        ListView  lista = (ListView) findViewById(R.id.lv_jogos);
 
+//       ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, paraTela);
+//       listTeste.setAdapter(arrayAdapter);
+
+        //ListView lista = (ListView) findViewById(R.id.lista);
+
+        List<Jogo> jogos = AdicionarJogos();
+        AdapterJogosPersonalizado adapter = new AdapterJogosPersonalizado(jogos, this);
+        lista.setAdapter(adapter);
+    }
+
+    public List<Jogo> AdicionarJogos(){
         GeradorLoteria gerador = new GeradorLoteria();
-        List<Bloco> blocos = gerador.Gerar(5);
-        ArrayList<String> paraTela = new ArrayList<String>();
+        List<Bloco> blocos = gerador.Gerar(1);
+        List<Jogo> paraTela  = new ArrayList<>();
         int i = 1;
         for (Bloco bloco : blocos) {
-            paraTela.add("BLOCO" + i);
+//            Jogo j = new Jogo();
+//            j.setNomeBloco("Bloco " + i);
+//            paraTela.add(j);
+
             for (Jogo jogo : bloco.getJogos()) {
-                paraTela.add(jogo.getNumeros().toString());
+                jogo.setNomeBloco("Bloco" + i);
+                paraTela.add(jogo);
             }
             i += 1;
         }
-
-       ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, paraTela);
-       listTeste.setAdapter(arrayAdapter);
+        return paraTela;
     }
 
 //    @Override
