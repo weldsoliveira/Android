@@ -1,16 +1,11 @@
 package com.example.appespigao;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.appespigao.models.Bloco;
@@ -42,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
 
-        listTeste = (ListView) findViewById(R.id.ListTeste3);
+        listTeste = (ListView) findViewById(R.id.lv_jogos);
 
         GeradorLoteria gerador = new GeradorLoteria();
         List<Bloco> blocos = gerador.Gerar(5);
