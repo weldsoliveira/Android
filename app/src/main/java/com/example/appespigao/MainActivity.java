@@ -55,33 +55,33 @@ public class MainActivity extends AppCompatActivity {
        listTeste.setAdapter(arrayAdapter);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.bottom_nav_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        switch (item.getItemId()) {
-            case R.id.navigation_home:
-                Intent intent = new Intent(this, MainActivity.class);
-                //  Intent intent2 = new Intent(this, MainActivity.class);
-                this.startActivity(intent);
-                return true;
-
-            case R.id.navigation_dashboard:
-                Toast.makeText(this, "You clicked dashboard", Toast.LENGTH_SHORT).show();
-                return true;
-
-            case R.id.navigation_notifications:
-                Toast.makeText(this, "You clicked notificações", Toast.LENGTH_SHORT).show();
-            default:
-                return super.onOptionsItemSelected(item);
-
-        }
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        MenuInflater menuInflater = getMenuInflater();
+//        menuInflater.inflate(R.menu.bottom_nav_menu, menu);
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//
+//        switch (item.getItemId()) {
+//            case R.id.navigation_home:
+//                Intent intent = new Intent(this, MainActivity.class);
+//                //  Intent intent2 = new Intent(this, MainActivity.class);
+//                this.startActivity(intent);
+//                return true;
+//
+//            case R.id.navigation_dashboard:
+//                Toast.makeText(this, "You clicked dashboard", Toast.LENGTH_SHORT).show();
+//                return true;
+//
+//            case R.id.navigation_notifications:
+//                Toast.makeText(this, "You clicked notificações", Toast.LENGTH_SHORT).show();
+//            default:
+//                return super.onOptionsItemSelected(item);
+//
+//        }
+//    }
 
 }
