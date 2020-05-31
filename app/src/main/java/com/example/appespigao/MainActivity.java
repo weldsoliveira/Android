@@ -40,11 +40,6 @@ public class MainActivity extends AppCompatActivity {
 
         ListView  lista = (ListView) findViewById(R.id.lv_jogos);
 
-//       ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, paraTela);
-//       listTeste.setAdapter(arrayAdapter);
-
-        //ListView lista = (ListView) findViewById(R.id.lista);
-
         List<Jogo> jogos = AdicionarJogos();
         AdapterJogosPersonalizado adapter = new AdapterJogosPersonalizado(jogos, this);
         lista.setAdapter(adapter);
@@ -56,12 +51,8 @@ public class MainActivity extends AppCompatActivity {
         List<Jogo> paraTela  = new ArrayList<>();
         int i = 1;
         for (Bloco bloco : blocos) {
-//            Jogo j = new Jogo();
-//            j.setNomeBloco("Bloco " + i);
-//            paraTela.add(j);
-
             for (Jogo jogo : bloco.getJogos()) {
-                jogo.setNomeBloco("Bloco" + i);
+               // jogo.setNomeBloco("Bloco" + i);
                 paraTela.add(jogo);
             }
             i += 1;
