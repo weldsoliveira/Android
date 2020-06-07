@@ -42,7 +42,7 @@ public class AdapterJogosPersonalizado extends BaseAdapter {
         Jogo jogo = jogos.get(position);
 
         TextView nome = (TextView)
-                view.findViewById(R.id.lista_curso_personalizada_numeros);
+                view.findViewById(R.id.lista_jogos_personalizado_numeros);
         nome.setText(jogo.getNumeros().toString());
 
 //        TextView nomeBloco = (TextView)
