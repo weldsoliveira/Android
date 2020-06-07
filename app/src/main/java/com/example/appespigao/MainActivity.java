@@ -1,12 +1,9 @@
 package com.example.appespigao;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.widget.ArrayAdapter;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import com.example.appespigao.adapter.AdapterJogosPersonalizado;
 import com.example.appespigao.models.Bloco;
@@ -21,7 +18,9 @@ import androidx.navigation.ui.NavigationUI;
 import java.util.ArrayList;
 import java.util.List;
 public class MainActivity extends AppCompatActivity {
-
+    private Button btnGerar;
+    private   ListView  lista;
+    private   TextView txtQtd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,21 +37,30 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
 
-        ListView  lista = (ListView) findViewById(R.id.lv_jogos);
-
-        List<Jogo> jogos = AdicionarJogos();
-        AdapterJogosPersonalizado adapter = new AdapterJogosPersonalizado(jogos, this);
-        lista.setAdapter(adapter);
+        btnGerar = findViewById(R.id.btnGerar);
+        lista = (ListView) findViewById(R.id.lv_jogos);
+        txtQtd = (TextView)findViewById(R.id.txtQtd);
+        btnGerar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                List<Jogo> jogos = AdicionarJogos(txtQtd.getText().toString());
+                AdapterJogosPersonalizado adapter = new AdapterJogosPersonalizado(jogos, MainActivity.this);
+                lista.setAdapter(adapter);
+            }
+        });
     }
 
-    public List<Jogo> AdicionarJogos(){
+    public List<Jogo> AdicionarJogos(String qtd){
         GeradorLoteria gerador = new GeradorLoteria();
-        List<Bloco> blocos = gerador.Gerar(1);
+        List<Bloco> blocos = gerador.Gerar(Integer.parseInt(qtd));
         List<Jogo> paraTela  = new ArrayList<>();
         int i = 1;
+
         for (Bloco bloco : blocos) {
             for (Jogo jogo : bloco.getJogos()) {
-               // jogo.setNomeBloco("Bloco" + i);
+
+                jogo.setNomeBloco("Bloco" + i);
                 paraTela.add(jogo);
             }
             i += 1;

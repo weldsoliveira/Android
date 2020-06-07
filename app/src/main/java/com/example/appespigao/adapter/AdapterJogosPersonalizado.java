@@ -45,9 +45,9 @@ public class AdapterJogosPersonalizado extends BaseAdapter {
                 view.findViewById(R.id.lista_jogos_personalizado_numeros);
         nome.setText(jogo.getNumeros().toString());
 
-//        TextView nomeBloco = (TextView)
-//                view.findViewById(R.id.lista_jogos_personalizada_nomeBloco);
-//        nomeBloco.setText(jogo.getnomeBloco());
+        TextView nomeBloco = (TextView)
+                view.findViewById(R.id.lista_jogos_personalizado_NomeBloco);
+        nomeBloco.setText(jogo.getnomeBloco());
 
         return view;
     }
